@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Book Store";
+}
+
+@model BooksViewModel  
+
+<h1 class="text-center">Books</h1>
+
+@foreach (Book b in Model.Books)
+{
+    <h3 class="card card-title">@b.Title</h3>
+
+    <ul>
+        <li>Author: @b.Author</li>
+        <li>Publisher: @b.Publisher</li>
+        <li>ISBN: @b.ISBN</li>
+        <li>Classification: @b.Classification</li>
+        <li>Category: @b.Category</li>
+        <li>Page Count: @b.PageCount</li>
+        <li>Price: $@b.Price</li>
+    </ul>
+
+    <br />
+}
+
+@*Set up place for info from page info model to be passed in and displayed*@
+@*Extra divs are for formatting the page navigations*@
+
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <div page-model="@Model.PageInfo" page-action="Index" page-classes-enabled="true" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
+        </div>    
+    </div>
+</div>
+

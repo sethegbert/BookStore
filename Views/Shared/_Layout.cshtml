@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    @*bring in bootstrap and html, set up title*@
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/lib/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="bg-dark text-white p-2">
+        <span class="navbar-brand ml-2">The Book Store</span>
+    </div>
+    <div class="row m-1 p-1">
+        @*this is a shared layout, so the body needs to be rendered*@
+        <div>
+            @RenderBody()
+        </div>
+    </div>
+    
+    <footer>Seth's Book Store © 2022</footer>
+</body>
+</html>
