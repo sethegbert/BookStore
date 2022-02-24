@@ -1,0 +1,38 @@
+﻿@{
+}
+
+@model Book 
+
+@*Creating a partial view that can be reused in different parts of the website*@
+
+<div class="card card-outline-primary m-1 p-1">
+    <div class="bg-light p-1">
+        <h3>@Model.Title</h3>
+
+        <span class="badge bg-info" style="float:right">
+            <li>Author: @Model.Author</li>
+        </span>
+    </div>
+
+    <ul>
+        <li>Publisher: @Model.Publisher</li>
+        <li>ISBN: @Model.ISBN</li>
+        <li>Classification: @Model.Classification</li>
+        <li>Category: @Model.Category</li>
+        <li>Page Count: @Model.PageCount</li>
+        <li>Price: $@Model.Price</li>
+    </ul>
+
+    <form method="post" asp-page="/Purchase">
+
+        <input type="hidden" asp-for="@Model.BookID" />
+        <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+
+        <span class="card-text">
+            <button type="submit" class="btn btn-success btn-sm float-end">Purchase</button>
+        </span>
+
+    </form>
+
+</div>
+

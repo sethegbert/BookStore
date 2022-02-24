@@ -13,8 +13,11 @@
         <span class="navbar-brand ml-2">The Book Store</span>
     </div>
     <div class="row m-1 p-1">
+        <div id="types" class="col-3">
+            <vc:categories></vc:categories>
+        </div>
         @*this is a shared layout, so the body needs to be rendered*@
-        <div>
+        <div class="col-9">
             @RenderBody()
         </div>
     </div>
