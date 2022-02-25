@@ -15,9 +15,10 @@ namespace BookStore.Pages
     {
         private IBookStoreRepository repo { get; set; }
 
-        public PurchaseModel (IBookStoreRepository temp)
+        public PurchaseModel (IBookStoreRepository temp, Basket b)
         {
             repo = temp;
+            basket = b;
         }
 
         public Basket basket { get; set; }
@@ -27,7 +28,7 @@ namespace BookStore.Pages
         public void OnGet(string returnUrl)
         {
             ReturnUrl = returnUrl ?? "/";
-            basket = HttpContext.Session.GetJson<Basket>("basket") ?? new Basket();
+        
         }
 
         // Load item according to what is selected, then add it to the basket
@@ -36,10 +37,14 @@ namespace BookStore.Pages
         {
             Book b = repo.Books.FirstOrDefault(x => x.BookID == BookID);
 
-            basket = HttpContext.Session.GetJson<Basket>("basket") ?? new Basket();
             basket.AddItem(b, 1);
 
-            HttpContext.Session.SetJson("basket", basket);
+            return RedirectToPage(new { ReturnUrl = returnUrl });
+        }
+
+        public IActionResult OnPostRemove (int BookId, string returnUrl)
+        {
+            basket.RemoveItem(basket.Items.First(x => x.Book.BookID == BookId).Book);
 
             return RedirectToPage(new { ReturnUrl = returnUrl });
         }

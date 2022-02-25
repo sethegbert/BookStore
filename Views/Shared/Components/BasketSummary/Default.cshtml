@@ -1,0 +1,22 @@
+﻿@{
+}
+
+@*This cshtml is the information we will need when displaying the basket icon with the quantity and price value. It also contains the information
+    on where to send the user when they click on the cart.*@
+
+@model Basket
+
+<div class="">
+    @if (Model.Items.Count() > 0)
+    {
+        <small class="navbar-text">
+            <b>Your cart:</b>
+            @Model.Items.Sum(x => x.Quantity) item(s)
+            @Model.CalculateTotal().ToString("c")
+        </small>
+    }
+
+    <a class="btn btn-sm btn-secondary navbar-btn" asp-page="/Purchase" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()">
+        <i class="fa fa-shopping-cart"></i>
+    </a>
+</div>
