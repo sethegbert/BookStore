@@ -1,9 +1,9 @@
 ﻿@page "/admin/purchases"
 @inherits OwningComponentBase<IPurchaseRepository>
 
-<h4>this page currently isn't working</h4>
+@*This page uses the PurchaseTable model to set books as shipped or to reset them as not shipped*@
 
-@*<PurchaseTable TableTitle="Unshipped Orders" Purchases="UnshippedOrders"
+<PurchaseTable TableTitle="Unshipped Orders" Purchases="UnshippedOrders"
                ButtonLabel="Ship" PurchaseSelected="ShipOrder"></PurchaseTable>
 
 <PurchaseTable TableTitle="Shipped Orders" Purchases="ShippedOrders"
@@ -41,4 +41,4 @@
         repo.SavePurchase(p);
     }
 
-}*@
+}

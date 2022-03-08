@@ -1,6 +1,8 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="bg-info text-white p-2">
+@* Here I added a red border around the navbar to demonstrate bootstrap.*@
+
+<div class="bg-info text-white p-2 border border-5 border-danger">
     <span class="navbar-brand m-lg-2">Book Store Administration</span>
 </div>
 
@@ -10,10 +12,12 @@
 
         <div class="col-3">
 
+            @*On the second button I added a shadow effect to demonstrate bootstrap. I only put it on one button to show the difference between the two.*@
+
             <div class="d-grid gap-2">
                 <NavLink class="btn btn-outline-primary" href="/admin/books"
                          ActiveClass="btn-primary text-white" Match="NavLinkMatch.Prefix">Books</NavLink>
-                <NavLink class="btn btn-outline-primary" href="/admin/purchases"
+                <NavLink class="btn btn-outline-primary shadow-lg" href="/admin/purchases"
                          ActiveClass="btn-primary text-white" Match="NavLinkMatch.Prefix">Purchases</NavLink>
             </div>
 
