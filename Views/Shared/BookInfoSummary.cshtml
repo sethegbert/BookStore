@@ -28,8 +28,10 @@
         <input type="hidden" asp-for="@Model.BookID" />
         <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
 
+        @* As a boostrap demonstration, I added a toggle over the purchase button so it displays a message when hovering over it.*@
+
         <span class="card-text">
-            <button type="submit" class="btn btn-success btn-sm float-end">Purchase</button>
+            <button type="submit" class="btn btn-success btn-sm float-end" data-toggle="tooltip" title="Add this book to your cart">Purchase</button>
         </span>
 
     </form>

@@ -1,5 +1,10 @@
 ﻿@page "/admin"
 
+@*Admins are sent to this page if they can be authenticated and authorized*@
+
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
 @model BookStore.Pages.Admin.IndexModel
 
 @{
